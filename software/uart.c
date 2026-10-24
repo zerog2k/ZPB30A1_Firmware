@@ -2,6 +2,7 @@
 #include "config.h"
 #include "inc/stm8s_uart2.h"
 #include "inc/stm8s_itc.h"
+#include "inc/stm8s_tim1.h"
 #include <stdio.h>
 #include "adc.h"
 #include "load.h"
@@ -76,6 +77,9 @@ void uart_handler()
         } else if (cnt == 8) {
             printf("mAs %10lu ", mAmpere_seconds);
         } else {
+#ifdef DEBUG
+            printf("TIM1->CCR1 %02X%02X ", TIM1->CCR1H, TIM1->CCR1L);
+#endif // DEBUG
             printf("\r\n");
             cnt = 0; // Disable output till new trigger by uart_timer()
         }

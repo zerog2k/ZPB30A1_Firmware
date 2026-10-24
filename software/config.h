@@ -21,7 +21,7 @@
 #define F_BEEP_ERROR 2
 #define F_BEEP_CUTOFF 5
 #define F_BEEP_KHZ 1 // 1, 2 or 4
-#define F_LOG 5
+#define F_LOG 1
 
 #define VOLT_MIN 500 //mV
 #define VOLT_MAX 30000 //mV
@@ -54,8 +54,10 @@
    unit the load current can be far off the setpoint. See calibration.md in
    the repository root for the measurement and fitting procedure.
 */
-#define LOAD_CAL_T 8821987L
-#define LOAD_CAL_M 350445L
+/* Calibration constants for MY unit, fitted from measurements as described in
+   upstream issue #2 using hardware/i_load.ods (stock values: T 8821987, M 350445). */
+#define LOAD_CAL_T 48342429L
+#define LOAD_CAL_M 331048L
 
 /* Maximum: 64 */
 #define ADC_SAMPLES_PER_MEASUREMENT 64
